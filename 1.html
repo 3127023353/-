@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+        color: ['#749aa0', '#df6b66', '#8cc1aa'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            top: 'top',
+            left: 'center',
+            data: ['高一', '高二', '高三']
+        },
+        grid: {
+            left: 0,
+            right: 0,
+            top: '16%',
+            bottom: '2%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            axisTick: {
+                show: false
+            },
+            data: ['语\n文', '数\n学', '英\n语', '物\n理', '化\n学', '政\n治', '历\n史', '生\n物', '地\n理', '技\n术', '美\n术', '体\n育', '音\n乐']
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                formatter: '{value}人'
+            },
+            axisTick: {
+                show: false
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#eeeeee',
+                    type: 'dashed'
+                }
+            }
+        },
+        toolbox: {
+            feature: {
+                magicType: {show: true, type: ['stack']},
+                restore: {show: true},
+            }
+        },
+        series: [
+            {
+                name: '高一',
+                type: 'bar',
+                label: {
+                    show: false,
+                    position: 'top'
+                },
+                data: [24, 27, 47, 19, 18, 10, 9, 12, 11, 1, 3, 1, 2]
+            },
+            {
+                name: '高二',
+                type: 'bar',
+                label: {
+                    show: false,
+                    position: 'top'
+                },
+                data: [22, 24, 40, 11, 8, 8, 4, 11, 4, 9, 3, 1, 2]
+            },
+            {
+                name: '高三',
+                type: 'bar',
+                label: {
+                    show: false,
+                    position: 'top'
+                },
+                data: [21, 20, 32, 9, 10, 4, 4, 8, 4, 6, 2, 1, 2]
+            },
+        ]
+    };;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
